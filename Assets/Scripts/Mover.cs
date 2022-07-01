@@ -8,13 +8,17 @@ namespace NTR.Movement
     {
         [SerializeField][Range(-10, 10)] float moveSpeed = 0;
 
-        bool facingLeft;
+        bool holdH;
+        bool holdV;
+        bool horizontalPressedLast;
         Vector2 moveDirection;
+        Animator anm;
         Rigidbody rb;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            anm = GetComponent<Animator>();
         }
 
         private void Update()
@@ -22,13 +26,21 @@ namespace NTR.Movement
             moveDirection.x = Input.GetAxisRaw("Horizontal");
             moveDirection.y = Input.GetAxisRaw("Vertical");
 
-            if (facingLeft && moveDirection.x > 0)
+            holdH = Input.GetButton("Horizontal");
+            holdV = Input.GetButton("Vertical");
+
+            if (holdH && !holdV || holdV && Input.GetButtonDown("Horizontal")) { horizontalPressedLast = true; }
+            if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
+
+            if (horizontalPressedLast && holdH)
             {
-                Flip();
+                anm.SetFloat("XInputAxis", moveDirection.x);
+                anm.SetFloat("ZInputAxis", 0);
             }
-            else if (!facingLeft && moveDirection.x < 0)
+            else if (!horizontalPressedLast && holdV)
             {
-                Flip();
+                anm.SetFloat("XInputAxis", 0);
+                anm.SetFloat("ZInputAxis", moveDirection.y);
             }
         }
 
@@ -36,14 +48,6 @@ namespace NTR.Movement
         {
             Vector3 moveVelocity = new Vector3(moveDirection.x, 0, moveDirection.y).normalized * moveSpeed;
             rb.MovePosition(transform.position + moveVelocity);
-        }
-
-        private void Flip()
-        {
-            facingLeft = !facingLeft;
-            Vector3 currentScale = transform.localScale;
-            currentScale.x *= -1;
-            transform.localScale = currentScale;
         }
     }
 }
