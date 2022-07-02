@@ -1,9 +1,11 @@
 using UnityEngine;
 using NTR.Movement;
+using NTR.Interactions;
 
 namespace NTR.Controllers
 {
     [RequireComponent(typeof(Mover))]
+    [RequireComponent(typeof(Interactor))]
     public class Controller : MonoBehaviour
     {
         bool holdH;
@@ -12,22 +14,22 @@ namespace NTR.Controllers
         Vector3 moveDirection;
 
         Mover mover;
+        Interactor interactor;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
+            interactor = GetComponent<Interactor>();
         }
 
         private void Update()
         {
             CalculateInputDirection();
             CalculateAnimationParameters();
+            Interact();
         }
 
-        private void FixedUpdate()
-        {
-            MoveCharacter();
-        }
+        private void FixedUpdate() { MoveCharacter(); }
 
         private void CalculateInputDirection()
         {
@@ -44,9 +46,8 @@ namespace NTR.Controllers
             if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
         }
 
-        private void MoveCharacter()
-        {
-            mover.MoveInDirection(moveDirection, horizontalPressedLast);
-        }
+        private void Interact() { if (Input.GetKeyDown(KeyCode.K)) { interactor.ChecForInteractionType(); } }
+
+        private void MoveCharacter() { mover.MoveInDirection(moveDirection, horizontalPressedLast); }
     }
 }
