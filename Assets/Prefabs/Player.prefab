@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4826721037894153915}
   m_Layer: 0
-  m_Name: Directioner
+  m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7774639581395331258}
   - component: {fileID: 5399956205214610969}
   - component: {fileID: 7774639581395331259}
+  - component: {fileID: 5091216372461404826}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,3 +180,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.07
+--- !u!114 &5091216372461404826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774639581395331262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6245af8214c734a7b82d432f98ff00c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checker: {fileID: 4826721037894153915}
+  checkerRadius: 1
+  interactablesMask:
+    serializedVersion: 2
+    m_Bits: 8
