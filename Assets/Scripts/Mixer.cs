@@ -6,9 +6,9 @@ namespace NTR.Interactions
 {
     public class Mixer : MonoBehaviour, IInteraction
     {
-        public void Interact()
+        public void Interact(Ingredients ingredient)
         {
-            Debug.Log("You are Mixing Ingredients!");
+            Debug.Log($"You are Mixing ! {ingredient}");
         }
     }
 }

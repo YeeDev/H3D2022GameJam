@@ -6,9 +6,9 @@ namespace NTR.Interactions
 {
     public class Oven : MonoBehaviour, IInteraction
     {
-        public void Interact()
+        public void Interact(Ingredients ingredient)
         {
-            Debug.Log("Cooking something in the oven!");
+            Debug.Log($"Cooking {ingredient} in the oven!");
         }
     }
 }
