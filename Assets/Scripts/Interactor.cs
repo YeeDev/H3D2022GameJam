@@ -8,13 +8,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] [Range(0.01f, 5f)] float checkerRadius = 1;
     [SerializeField] LayerMask interactablesMask = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
