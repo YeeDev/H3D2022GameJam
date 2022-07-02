@@ -11,6 +11,8 @@ namespace NTR.Interactions
         [SerializeField] LayerMask interactablesMask = 0;
         [SerializeField] SpriteRenderer carriedIngredient = null;
 
+        Ingredients ingredientCarrying = Ingredients.NONE;
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.K))
@@ -24,11 +26,17 @@ namespace NTR.Interactions
 
                     if (interaction == null)
                     {
-                        carriedIngredient.sprite = hit.transform.GetComponent<SpriteRenderer>().sprite;
+                        Ingredient ingredient = hit.transform.GetComponent<Ingredient>();
+
+                        ingredientCarrying = ingredient.GetIngredient;
+                        carriedIngredient.sprite = ingredient.GetSprite;
                     }
                     else
                     {
-                        interaction.Interact();
+                        interaction.Interact(ingredientCarrying);
+
+                        ingredientCarrying = Ingredients.NONE;
+                        carriedIngredient.sprite = null;
                     }
                 }
             }
