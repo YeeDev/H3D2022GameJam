@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NTR.Movement
@@ -8,10 +6,6 @@ namespace NTR.Movement
     {
         [SerializeField][Range(-10, 10)] float moveSpeed = 0;
 
-        bool holdH;
-        bool holdV;
-        bool horizontalPressedLast;
-        Vector2 moveDirection;
         Animator anm;
         Rigidbody rb;
 
@@ -21,33 +15,27 @@ namespace NTR.Movement
             anm = GetComponent<Animator>();
         }
 
-        private void Update()
+        public void MoveInDirection(Vector3 moveDirection, bool horizontalPressedLast)
         {
-            moveDirection.x = Input.GetAxisRaw("Horizontal");
-            moveDirection.y = Input.GetAxisRaw("Vertical");
+            Vector3 moveVelocity = moveDirection.normalized * moveSpeed;
+            rb.MovePosition(transform.position + moveVelocity);
 
-            holdH = Input.GetButton("Horizontal");
-            holdV = Input.GetButton("Vertical");
+            PlayWalkingAnimation(moveDirection, horizontalPressedLast);
+        }
 
-            if (holdH && !holdV || holdV && Input.GetButtonDown("Horizontal")) { horizontalPressedLast = true; }
-            if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
-
-            if (horizontalPressedLast && holdH)
+        //TODO Refactor to animation script?
+        public void PlayWalkingAnimation(Vector3 moveDirection, bool horizontalPressedLast)
+        {
+            if (horizontalPressedLast && Mathf.RoundToInt(moveDirection.x) != 0)
             {
                 anm.SetFloat("XInputAxis", moveDirection.x);
                 anm.SetFloat("ZInputAxis", 0);
             }
-            else if (!horizontalPressedLast && holdV)
+            else if (!horizontalPressedLast && Mathf.RoundToInt(moveDirection.z) != 0)
             {
                 anm.SetFloat("XInputAxis", 0);
-                anm.SetFloat("ZInputAxis", moveDirection.y);
+                anm.SetFloat("ZInputAxis", moveDirection.z);
             }
-        }
-
-        private void FixedUpdate()
-        {
-            Vector3 moveVelocity = new Vector3(moveDirection.x, 0, moveDirection.y).normalized * moveSpeed;
-            rb.MovePosition(transform.position + moveVelocity);
         }
     }
 }
