@@ -2,6 +2,6 @@ namespace NTR.Interactions
 {
     public interface IInteraction
     {
-        public void Interact();
+        public void Interact(Ingredients ingredient);
     }
 }
