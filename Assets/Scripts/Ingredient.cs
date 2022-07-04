@@ -7,6 +7,7 @@ namespace NTR.Interactions
     public class Ingredient : MonoBehaviour
     {
         [SerializeField] IngredientsTypes ingredient;
+        [SerializeField] [Range(0, 10)]int mixedTimes = 0;
 
         Sprite ingredientSprite;
 
@@ -14,5 +15,7 @@ namespace NTR.Interactions
         public IngredientsTypes GetIngredient { get => ingredient; }
 
         private void Awake() { ingredientSprite = GetComponent<SpriteRenderer>().sprite; }
+
+        public void MixMore() { mixedTimes++; }
     }
 }
