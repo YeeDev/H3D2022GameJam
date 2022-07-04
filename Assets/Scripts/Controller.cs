@@ -26,7 +26,8 @@ namespace NTR.Controllers
         {
             CalculateInputDirection();
             CalculateAnimationParameters();
-            Interact();
+            GrabIngredient();
+            UseUtensil();
         }
 
         private void FixedUpdate() { MoveCharacter(); }
@@ -46,7 +47,8 @@ namespace NTR.Controllers
             if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
         }
 
-        private void Interact() { if (Input.GetKeyDown(KeyCode.K)) { interactor.ChecForInteractionType(); } }
+        private void GrabIngredient() { if (Input.GetKeyDown(KeyCode.K)) { interactor.GrabIngredient(); } }
+        private void UseUtensil() { if (Input.GetKeyDown(KeyCode.J)) { interactor.UseUtensil(); } }
 
         private void MoveCharacter() { mover.MoveInDirection(moveDirection, horizontalPressedLast); }
     }
