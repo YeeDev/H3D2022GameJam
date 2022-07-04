@@ -7,6 +7,7 @@ namespace NTR.Interactions
         Sugar,
         Rice,
         Pasta,
-        Carrots
+        Carrots,
+        Dough
     }
 }
