@@ -290,7 +290,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checker: {fileID: 4826721037894153915}
   checkerRadius: 0.2
-  interactablesMask:
+  ingredientMask:
+    serializedVersion: 2
+    m_Bits: 64
+  utensilMask:
     serializedVersion: 2
     m_Bits: 8
   carriedIngredient: {fileID: 6906915143417964776}
