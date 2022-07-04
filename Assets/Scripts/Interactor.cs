@@ -9,7 +9,7 @@ namespace NTR.Interactions
         [SerializeField] LayerMask interactablesMask = 0;
         [SerializeField] SpriteRenderer carriedIngredient = null;
 
-        Ingredients ingredientCarrying = Ingredients.NONE;
+        IngredientsTypes ingredientCarrying = IngredientsTypes.NONE;
 
         public void ChecForInteractionType()
         {
@@ -34,7 +34,7 @@ namespace NTR.Interactions
         //TODO set in animation script?
         private void SetIngredient(Ingredient ingredient)
         {
-            ingredientCarrying = ingredient != null ? ingredient.GetIngredient : Ingredients.NONE;
+            ingredientCarrying = ingredient != null ? ingredient.GetIngredient : IngredientsTypes.NONE;
             carriedIngredient.sprite = ingredient != null ?  ingredient.GetSprite : null;
         }
 

@@ -15,7 +15,7 @@ namespace NTR.Controllers
 
         Mover mover;
         Interactor interactor;
-
+        
         private void Awake()
         {
             mover = GetComponent<Mover>();

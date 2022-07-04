@@ -1,6 +1,6 @@
 namespace NTR.Interactions
 {
-    public enum Ingredients
+    public enum IngredientsTypes
     {
         NONE,
         Flour,

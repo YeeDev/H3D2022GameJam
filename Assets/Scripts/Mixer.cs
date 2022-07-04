@@ -6,9 +6,14 @@ namespace NTR.Interactions
 {
     public class Mixer : MonoBehaviour, IInteraction
     {
-        public void Interact(Ingredients ingredient)
+        List<IngredientsTypes> ingredientsInMixer = new List<IngredientsTypes>();
+
+        public void Interact(IngredientsTypes ingredient)
         {
-            Debug.Log($"You are Mixing ! {ingredient}");
+            if (ingredient != IngredientsTypes.NONE) { ingredientsInMixer.Add(ingredient); }
+
+
+
         }
     }
 }

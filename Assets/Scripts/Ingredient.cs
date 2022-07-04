@@ -6,12 +6,12 @@ namespace NTR.Interactions
 {
     public class Ingredient : MonoBehaviour
     {
-        [SerializeField] Ingredients ingredient;
+        [SerializeField] IngredientsTypes ingredient;
 
         Sprite ingredientSprite;
 
         public Sprite GetSprite { get => ingredientSprite; }
-        public Ingredients GetIngredient { get => ingredient; }
+        public IngredientsTypes GetIngredient { get => ingredient; }
 
         private void Awake() { ingredientSprite = GetComponent<SpriteRenderer>().sprite; }
     }
