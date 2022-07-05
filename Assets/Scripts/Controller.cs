@@ -48,7 +48,7 @@ namespace NTR.Controllers
         }
 
         private void GrabInput() { if (Input.GetKeyDown(KeyCode.K)) { Debug.Log("Trying to grab an ingredient"); } }
-        private void UntensilInput() { if (Input.GetKeyDown(KeyCode.J)) { interactor.UseUtensil(); } }
+        private void UntensilInput() { if (Input.GetKeyDown(KeyCode.J)) { interactor.TryToUseUtensil(); } }
 
         private void MoveCharacter() { mover.MoveInDirection(moveDirection, horizontalPressedLast); }
     }
