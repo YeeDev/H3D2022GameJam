@@ -47,8 +47,8 @@ namespace NTR.Controllers
             if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
         }
 
-        private void GrabInput() { if (Input.GetKeyDown(KeyCode.K)) { Debug.Log("Trying to grab an ingredient"); } }
-        private void UntensilInput() { if (Input.GetKeyDown(KeyCode.J)) { interactor.TryToUseUtensil(); } }
+        private void GrabInput() { if (Input.GetKeyDown(KeyCode.K)) { interactor.TryInteraction(true); } }
+        private void UntensilInput() { if (Input.GetKeyDown(KeyCode.J)) { interactor.TryInteraction(false); } }
 
         private void MoveCharacter() { mover.MoveInDirection(moveDirection, horizontalPressedLast); }
     }
