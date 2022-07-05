@@ -9,8 +9,9 @@ namespace NTR.Interactions
     {
         [SerializeField] IngredientData ingredientData = null;
 
+        public bool IsIngredient() { return true; }
         public IngredientData GetIngredient() { return ingredientData; }
 
-        public void Interact() { }
+        public void Interact(IngredientData ingredientData) { }
     }
 }
