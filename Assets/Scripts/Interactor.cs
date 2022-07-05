@@ -1,5 +1,5 @@
 using UnityEngine;
-using NTR.Utensils;
+using NTR.Ingredients;
 
 namespace NTR.Interactions
 {
@@ -7,19 +7,34 @@ namespace NTR.Interactions
     {
         [SerializeField] Transform rayDirectioneer = null;
         [SerializeField] LayerMask utensilMask = 0;
+        [SerializeField] SpriteRenderer ingredientHolder = null;
 
-        Transform utensilToUse;
+        Transform interactable;
+        IngredientData currentIngredient = new IngredientData();
 
-        public void TryToUseUtensil()
+        public void TryInteraction(bool checkForIngredient)
         {
-            utensilToUse = SearchForUtensil();
-            if (utensilToUse != null)
+            interactable = SearchForInteractable();
+            if (interactable != null)
             {
-                utensilToUse.GetComponent<IUtensil>().UseUtensil();
+                if (checkForIngredient)
+                {
+                    IngredientData checkIngredient = interactable.GetComponent<IInteractable>().GetIngredient();
+                    if (checkIngredient != null)
+                    {
+                        currentIngredient.CopyIngredient(checkIngredient);
+                        ingredientHolder.sprite = currentIngredient.sprite;
+                        Debug.Log($"My current ingredient is {currentIngredient.ingredientName}");
+                    }
+                }
+                else
+                {
+                    interactable.GetComponent<IInteractable>().Interact();
+                }
             }
         }
 
-        private Transform SearchForUtensil()
+        private Transform SearchForInteractable()
         {
             RaycastHit hit;
             Vector3 direction = rayDirectioneer.position - transform.position;
