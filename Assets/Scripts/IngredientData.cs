@@ -5,23 +5,24 @@ namespace NTR.Ingredients
     [System.Serializable]
     public class IngredientData
     {
-        public string ingredientName;
+        public IngredientType name;
         public Sprite sprite;
 
         int timesMixed;
+        public int TimesMixed { get => timesMixed; }
 
         public void Mix() { Mathf.Clamp(timesMixed++, 0, 10); }
 
         public void CopyIngredient(IngredientData ingredientToCopy)
         {
-            ingredientName = ingredientToCopy.ingredientName;
+            name = ingredientToCopy.name;
             timesMixed = ingredientToCopy.timesMixed;
             sprite = ingredientToCopy.sprite;
         }
 
         public void ResetIngredient()
         {
-            ingredientName = null;
+            name = IngredientType.NONE;
             timesMixed = 0;
             sprite = null;
         }
