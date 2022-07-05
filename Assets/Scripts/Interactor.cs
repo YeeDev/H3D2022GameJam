@@ -20,16 +20,24 @@ namespace NTR.Interactions
                 if (checkForIngredient)
                 {
                     IngredientData checkIngredient = interactable.GetComponent<IInteractable>().GetIngredient();
-                    if (checkIngredient != null)
+                    if (checkIngredient.name != IngredientType.NONE)
                     {
                         currentIngredient.CopyIngredient(checkIngredient);
                         ingredientHolder.sprite = currentIngredient.sprite;
-                        Debug.Log($"My current ingredient is {currentIngredient.ingredientName}");
+                        Debug.Log($"My current ingredient is {currentIngredient.name}");
+                        Debug.Log($"It has been mixed {currentIngredient.TimesMixed} times");
                     }
                 }
                 else
                 {
-                    interactable.GetComponent<IInteractable>().Interact();
+                    IInteractable interactbaleToUse = interactable.GetComponent<IInteractable>();
+                    interactbaleToUse.Interact(currentIngredient);
+
+                    if (!interactbaleToUse.IsIngredient())
+                    {
+                        currentIngredient.ResetIngredient();
+                        ingredientHolder.sprite = null;
+                    }
                 }
             }
         }
