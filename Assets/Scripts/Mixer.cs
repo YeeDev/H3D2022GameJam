@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NTR.Ingredients;
 
-namespace NTR.Utensils
+namespace NTR.Interactions
 {
-    public class Mixer : MonoBehaviour, IUtensil
+    public class Mixer : MonoBehaviour, IInteractable
     {
-        public void UseUtensil()
+        public void Interact()
         {
             Debug.Log("You are using the mixer!");
+        }
+
+        public IngredientData GetIngredient()
+        {
+            return null;
         }
     }
 }
