@@ -135,8 +135,7 @@ GameObject:
   - component: {fileID: 137804813}
   - component: {fileID: 137804812}
   - component: {fileID: 137804811}
-  - component: {fileID: 137804815}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Mixer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,20 +219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &137804815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137804810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ec15c7cae8b450b8cfb897ffcd21d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dough: {fileID: 2238585217661495613, guid: 71fc6a031cfbc4c5681da3b84f54565a, type: 3}
-  ingredientHolder: {fileID: 1238924031}
 --- !u!1 &640427526
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +231,7 @@ GameObject:
   - component: {fileID: 640427529}
   - component: {fileID: 640427528}
   - component: {fileID: 640427527}
-  - component: {fileID: 640427531}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Pan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,18 +314,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &640427531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640427526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18cef0176e4c48b08788ee556500f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,8 +626,7 @@ GameObject:
   - component: {fileID: 1441638390}
   - component: {fileID: 1441638389}
   - component: {fileID: 1441638388}
-  - component: {fileID: 1441638391}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pasta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,20 +711,6 @@ Transform:
   m_Father: {fileID: 1510188850}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1441638391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441638387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac94ae9e6270494d92e9b25aa882549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredient: 4
-  mixedTimes: 0
 --- !u!1 &1510188845
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,8 +819,7 @@ GameObject:
   - component: {fileID: 1586207684}
   - component: {fileID: 1586207683}
   - component: {fileID: 1586207686}
-  - component: {fileID: 1586207685}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Flour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,20 +891,6 @@ Transform:
   m_Father: {fileID: 1510188850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1586207685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586207682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac94ae9e6270494d92e9b25aa882549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredient: 1
-  mixedTimes: 0
 --- !u!65 &1586207686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -974,8 +916,7 @@ GameObject:
   - component: {fileID: 1800425701}
   - component: {fileID: 1800425700}
   - component: {fileID: 1800425699}
-  - component: {fileID: 1800425703}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,18 +999,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1800425703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800425698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed408605327e4778931295cb6ffe8aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7774639580406260134
 PrefabInstance:
   m_ObjectHideFlags: 0

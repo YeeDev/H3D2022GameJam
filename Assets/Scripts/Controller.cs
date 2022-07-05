@@ -26,8 +26,8 @@ namespace NTR.Controllers
         {
             CalculateInputDirection();
             CalculateAnimationParameters();
-            GrabIngredient();
-            UseUtensil();
+            GrabInput();
+            UntensilInput();
         }
 
         private void FixedUpdate() { MoveCharacter(); }
@@ -47,8 +47,8 @@ namespace NTR.Controllers
             if (!holdH && holdV || holdH && Input.GetButtonDown("Vertical")) { horizontalPressedLast = false; }
         }
 
-        private void GrabIngredient() { if (Input.GetKeyDown(KeyCode.K)) { interactor.GrabIngredient(); } }
-        private void UseUtensil() { if (Input.GetKeyDown(KeyCode.J)) { interactor.UseUtensil(); } }
+        private void GrabInput() { if (Input.GetKeyDown(KeyCode.K)) { Debug.Log("Trying to grab an ingredient"); } }
+        private void UntensilInput() { if (Input.GetKeyDown(KeyCode.J)) { interactor.UseUtensil(); } }
 
         private void MoveCharacter() { mover.MoveInDirection(moveDirection, horizontalPressedLast); }
     }
